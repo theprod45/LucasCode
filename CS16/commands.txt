@@ -1,0 +1,5 @@
+nasm -g -f elf filename.asm ;Creates asm Object file
+ld -m elf_i386 filename.o ;Links that .o file to the OS and creates executable
+objdump -hrt filename
+objdump -d executable ; This disassembles the program
+objdump -S executable ; This also disassembles the program, will show you comments and everything

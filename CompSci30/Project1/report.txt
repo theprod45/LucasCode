@@ -1,0 +1,116 @@
+Norpchen, Lucas
+
+Design:
+  I designed my map using a Binary Search tree. I created a private Node and used the map as
+  a tree rather then creating a separate tree class inside the map private data. I used Binary
+  searches to get most of my functions accomplished.
+
+An obstacle I overcame was realizing that combine and subtract were supposed to be outside of the Map class, the directions
+confused me with words such as  Map::erase. I am still really unclear as to if these functions are supposed to be inside the class or out.
+An obstacle I did not overcome was getting my program to compile with the provided test programs. The first test program could not include
+my erase and combine functions. The next test program would work until the assert statements, I could not figure out why these assert statements,
+were not working. I was able to rewrite the assert statements exactly as they were and comment out the real ones and it would work. I have no idea
+to why these assert statements are not working.
+
+
+Pseudo CODE
+------------------------
+subtract(const Map& m1, const Map& m2, Map& result){
+  ValueType v;
+  KeyType k;
+  for every node in m1{
+    if(m2 doesn't contain the m1->node){
+      insert node
+    }
+  }
+}
+
+combine(const Map& m1, const Map& m2, Map& result){
+  bool f = true;
+  KeyType k;
+  ValueType v;
+  // Copy over 1st map to results
+  result = m1;
+  for(int i = 0; i < m2.size(); i++){
+    m2.get(i,k,v);
+
+    KeyType k2;
+    ValueType v2;
+    //Check if 2nd map Key exists in results and if values are the same
+      // if key and value ==
+        break;
+      // if key and value are diff
+      if(k2 == k && v2 != v)
+        result.erase(k2);
+        bool f = false;
+        break;
+}
+
+
+Some Test Cases
+--------------------
+Map m;
+    Constructor Check
+
+
+std::cout << m.empty() << std::endl;
+    Checks empty() function
+
+// TRY DIFFERENT KEY TYPES
+KeyType k1 = "A";
+ValueType v1 = 1.0;
+KeyType k2 = "B";
+ValueType v2 = 2.0;
+KeyType k3 = "C";
+ValueType v3 = 3.0;
+KeyType k4 = "D";
+ValueType v4 = 4.0;
+KeyType k5 = "E";
+ValueType v5 = 5.0;
+KeyType k6 = "F";
+ValueType v6 = 6.0;
+KeyType k7 = "G";
+ValueType v7 = 7.0;
+KeyType k8 = "H";
+ValueType v8 = 8.0;
+m.insert(k4,v1);
+m.insert(k2,v2);
+m.insert(k6,v6);
+m.insert(k1,v1);
+m.insert(k7,v7);
+    CHECKS INSERT() function
+
+m.contains(k7);
+  checks contains() function
+
+ValueType vTest;
+m.get(k7,vTest);
+std::cout << vTest << std::endl;
+      get() function
+
+ValueType vTest2;
+KeyType kTest;
+for(int i = 0; i < m.size(); i++){
+  m.get(i,kTest,vTest2);
+  std::cout << kTest << " " << vTest2 << std::endl;
+}
+    2nd get function
+
+Map m2;
+m2.insert(k2,v1);
+Map r;
+m.combine(m,m2,r);
+for(int i = 0; i < m.size(); i++){
+  m.get(i,kTest,vTest2);
+  std::cout << kTest << " " << vTest2 << std::endl;
+}
+      CHECKS COMBINE() function
+
+std::cout<< " \n";
+m.erase(k2);
+m.erase(k6);
+for(int i = 0; i < m.size(); i++){
+  m.get(i,kTest,vTest2);
+  std::cout << kTest << " " << vTest2 << std::endl;
+}
+    Checks Erase function
